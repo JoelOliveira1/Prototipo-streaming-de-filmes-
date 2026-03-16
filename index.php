@@ -1,3 +1,5 @@
+<?php include "proteger.php"; ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
