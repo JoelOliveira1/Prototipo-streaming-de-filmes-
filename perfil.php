@@ -30,6 +30,7 @@ $usuario = $result->fetch_assoc();
 <a href="#">Séries</a>
 <a href="#">Minha Lista</a>
 <a href="perfil.php">Perfil</a>
+<a href="logout.php"class= "Logout">Sair</a>
 </nav>
 
 </header>
