@@ -3,7 +3,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$db = "streaming";
+$db = "nityfrix";
 
 $conn = new mysqli($host, $user, $pass, $db);
 
