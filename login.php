@@ -15,7 +15,7 @@ if($result->num_rows > 0){
     if(password_verify($senha, $usuario['senha'])){
 
         $_SESSION['usuario'] = $usuario['nome'];
-        $_SESSION['usuario_id'] = $row['id'];
+        $_SESSION['usuario_id'] = $usuario['id'];
 
         header("Location: index.php");
         exit();

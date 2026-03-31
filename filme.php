@@ -72,6 +72,13 @@ $favoritado = $res_fav->num_rows > 0;
             </div>
 
             <p class="sinopse"><?php echo htmlspecialchars($filme['sinopse']); ?></p>
+            <a 
+            href="https://youtu.be/0V4TiaU06uo?si=Jj4yjc1ekEaTr5Bk" 
+            target="_blank" 
+            class="btn-assistir"
+        >
+            ▶ Assistir
+        </a>
 
             <!-- Botão de favoritar na página de detalhes -->
             <button
