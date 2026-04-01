@@ -38,6 +38,7 @@ while ($fav = $res_fav->fetch_assoc()) {
         <h1 class="logo">Nityfrix</h1>
         <nav>
             <a href="index.php">Início</a>
+            <a href ="upgrade.php">Vire Premium</a>
             <a href="index.php?tipo=filme">Filmes</a>
             <a href="index.php?tipo=serie">Séries</a>
             <a href="perfil.php">Perfil</a>
