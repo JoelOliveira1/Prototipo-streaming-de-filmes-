@@ -1,3 +1,32 @@
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #1a1a1a;
+    --bg-tertiary: #141414;
+    --text-primary: #f0f0f0;
+    --text-secondary: #e0e0e0;
+    --text-muted: #888;
+    --accent-purple: #c084fc;
+    --accent-purple-dark: #a855f7;
+    --accent-purple-light: #8b5cf6;
+    --border-color: #2a2a2a;
+    --error: #ef4444;
+    --error-dark: #dc2626;
+    --error-darker: #b91c1c;
+}
+
+body.claro {
+    --bg-primary: #f5f5f5;
+    --bg-secondary: #fff;
+    --bg-tertiary: #fff;
+    --text-primary: #333;
+    --text-secondary: #333;
+    --text-muted: #999;
+    --accent-purple: #8b5cf6;
+    --accent-purple-dark: #7c3aed;
+    --accent-purple-light: #8b5cf6;
+    --border-color: #e0e0e0;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,10 +34,11 @@
 }
 
 body {
-    background-color: #0a0a0a;
+    background-color: var(--bg-primary);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #f0f0f0;
+    color: var(--text-primary);
     min-height: 100vh;
+    transition: background-color 0.7s, color 0.7s;
 }
 
 a {
@@ -16,7 +46,7 @@ a {
     color: inherit;
 }
 
-/* Menu de navegação*/
+/* Menu */
 .menu {
     background-color: rgba(50, 0, 100, 0.90);
     display: flex;
@@ -39,7 +69,7 @@ a {
 .logo {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #c084fc;
+    color: var(--accent-purple);
     letter-spacing: 2px;
 }
 
@@ -49,60 +79,83 @@ a {
 }
 
 .menu nav a {
-    color: #e0e0e0;
+    color: var(--text-secondary);
     font-size: 0.95rem;
     transition: color 0.2s;
 }
 
 .menu nav a:hover {
-    color: #c084fc;
+    color: var(--accent-purple);
 }
 
-/* Seção de boas-vindas */
+#tema {
+    background: transparent;
+    border: 1px solid var(--accent-purple);
+    color: var(--accent-purple);
+    font-size: 1.2rem;
+    padding: 4px 8px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#tema:hover {
+    background: rgba(192, 132, 252, 0.1);
+    transform: scale(1.1);
+}
+
+/* Boas-vindas */
 .boas-vindas {
     width: 90%;
-    margin: 110px auto 10px auto;
+    margin: 110px auto 10px;
     padding: 20px 0;
-    border-bottom: 1px solid #2a2a2a;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .boas-vindas h2 {
     font-size: 1.5rem;
-    color: #f0f0f0;
+    color: var(--text-primary);
 }
 
 .boas-vindas p {
-    color: #888;
+    color: var(--text-muted);
     margin-top: 4px;
     font-size: 0.9rem;
 }
 
-/* Título de seção (ex: "Filmes", "Séries") */
+/* Títulos de seção */
 .titulo-secao {
     width: 90%;
-    margin: 20px auto 15px auto;
+    margin: 20px auto 15px;
     font-size: 1.2rem;
-    color: #c084fc;
+    color: var(--accent-purple);
     font-weight: 600;
 }
 
-/* Grade de filmes/séries */
+/* Grade de filmes */
 .container-filmes {
     width: 90%;
-    margin: 0 auto 60px auto;
+    margin: 0 auto 60px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
-/* Card individual de filme/série */
+/* Card de filme */
 .box-filme {
-    background-color: #1a1a1a;
+    background-color: var(--bg-secondary);
     border-radius: 10px;
     overflow: hidden;
     position: relative;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
     cursor: pointer;
+}
+
+body.claro .box-filme {
+    border: 1px solid var(--border-color);
 }
 
 .box-filme:hover {
@@ -110,18 +163,18 @@ a {
     box-shadow: 0 8px 30px rgba(192, 132, 252, 0.3);
 }
 
-/* Imagem da capa */
+body.claro .box-filme:hover {
+    box-shadow: 0 8px 30px rgba(139, 92, 246, 0.2);
+}
+
 .capa-filme {
     width: 100%;
     height: 200px;
     object-fit: cover;
     display: block;
-
-    /* Fallback cinza enquanto imagem não carrega */
     background-color: #333;
 }
 
-/* Informações abaixo da capa */
 .info-filme {
     padding: 12px 14px;
     display: flex;
@@ -133,13 +186,12 @@ a {
 .info-filme h4 {
     width: 100%;
     font-size: 0.95rem;
-    color: #f0f0f0;
+    color: var(--text-primary);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-/* Badge "Filme" ou "Série" */
 .badge-tipo {
     background-color: #4a0080;
     color: #e0c0ff;
@@ -150,25 +202,28 @@ a {
     text-transform: uppercase;
 }
 
+body.claro .badge-tipo {
+    background-color: #e9d5ff;
+    color: #6b21a8;
+}
+
 .ano {
-    color: #888;
+    color: var(--text-muted);
     font-size: 0.8rem;
 }
 
-/* Link que envolve a capa e as informações */
 .link-filme {
     display: block;
     color: inherit;
 }
 
-/*  Botão de favoritar (coração) nos cards */
 .btn-favoritar {
     position: absolute;
     top: 10px;
     right: 10px;
     background: rgba(0, 0, 0, 0.6);
     border: none;
-    color: #888;
+    color: var(--text-muted);
     font-size: 1.3rem;
     width: 36px;
     height: 36px;
@@ -187,17 +242,16 @@ a {
     transform: scale(1.15);
 }
 
-/* Estado favoritado: coração vermelho */
 .btn-favoritar.favoritado {
-    color: #ef4444;
+    color: var(--error);
     background: rgba(0, 0, 0, 0.75);
 }
 
-/* Página de detalhes do filme*/
+/* Detalhes do filme */
 .detalhe-container {
     width: 90%;
     max-width: 900px;
-    margin: 110px auto 60px auto;
+    margin: 110px auto 60px;
     display: flex;
     gap: 40px;
     align-items: flex-start;
@@ -224,7 +278,7 @@ a {
 
 .detalhe-info h2 {
     font-size: 2rem;
-    color: #f0f0f0;
+    color: var(--text-primary);
     line-height: 1.2;
 }
 
@@ -240,14 +294,17 @@ a {
     line-height: 1.7;
 }
 
-/* Botão de favoritar na página de detalhes */
+body.claro .sinopse {
+    color: #666;
+}
+
 .btn-favoritar-detalhe {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     background: transparent;
-    border: 2px solid #888;
-    color: #888;
+    border: 2px solid var(--text-muted);
+    color: var(--text-muted);
     padding: 10px 20px;
     border-radius: 8px;
     cursor: pointer;
@@ -257,24 +314,19 @@ a {
     width: fit-content;
 }
 
-.btn-favoritar-detalhe .icone-coracao {
-    font-size: 1.2rem;
-}
-
 .btn-favoritar-detalhe:hover {
-    border-color: #ef4444;
-    color: #ef4444;
+    border-color: var(--error);
+    color: var(--error);
 }
 
 .btn-favoritar-detalhe.favoritado {
-    border-color: #ef4444;
-    color: #ef4444;
+    border-color: var(--error);
+    color: var(--error);
     background: rgba(239, 68, 68, 0.1);
 }
 
-/* Botão voltar */
 .btn-voltar {
-    color: #c084fc;
+    color: var(--accent-purple);
     font-size: 0.9rem;
     transition: opacity 0.2s;
     width: fit-content;
@@ -284,16 +336,16 @@ a {
     opacity: 0.7;
 }
 
-/* Página de perfil */
+/* Perfil */
 .perfil-pagina {
     width: 90%;
     max-width: 1100px;
-    margin: 110px auto 60px auto;
+    margin: 110px auto 60px;
 }
 
 .perfil-container {
-    background: #141414;
-    border: 1px solid #2a2a2a;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 30px 36px;
     display: flex;
@@ -305,8 +357,8 @@ a {
 
 .perfil-container h2 {
     font-size: 1.4rem;
-    color: #c084fc;
-    border-bottom: 1px solid #2a2a2a;
+    color: var(--accent-purple);
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 12px;
 }
 
@@ -318,12 +370,16 @@ a {
     font-size: 0.95rem;
 }
 
+body.claro .perfil-dados {
+    color: #555;
+}
+
 .perfil-dados strong {
-    color: #f0f0f0;
+    color: var(--text-primary);
 }
 
 .btn-logout {
-    background: #dc2626;
+    background: var(--error-dark);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -336,44 +392,180 @@ a {
 }
 
 .btn-logout:hover {
-    background: #b91c1c;
+    background: var(--error-darker);
 }
 
-/* Seção de favoritos no perfil */
 .favoritos-secao h3 {
     font-size: 1.3rem;
-    color: #ef4444;
+    color: var(--error);
     margin-bottom: 20px;
 }
 
 .sem-favoritos {
-    color: #888;
+    color: var(--text-muted);
     font-size: 0.95rem;
 }
 
 .sem-favoritos a {
-    color: #c084fc;
+    color: var(--accent-purple);
 }
 
 .sem-favoritos a:hover {
     text-decoration: underline;
 }
 
-/* Animação de saída ao desfavoritar no perfil */
-.box-filme {
-    transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
+.btn-assistir {
+    background: var(--error-dark);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: background 0.2s;
+    width: fit-content;
 }
 
-/*Responsividade*/
+.btn-assistir:hover {
+    background-color: #b20710;
+}
 
-/* Tablet (até 1024px): 3 colunas */
+/* Login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+.login-container form {
+    background: var(--bg-tertiary);
+    padding: 35px;
+    border-radius: 12px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--border-color);
+}
+
+.login-container h2 {
+    text-align: center;
+    color: var(--accent-purple);
+    margin-bottom: 10px;
+}
+
+.login-container input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+body.claro .login-container input {
+    background: #f9f9f9;
+    border-color: #ddd;
+}
+
+body.claro .login-container input::placeholder {
+    color: #999;
+}
+
+.login-container button {
+    background: var(--accent-purple);
+    color: black;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.login-container button:hover {
+    background: var(--accent-purple-dark);
+}
+
+body.claro .login-container button {
+    color: #fff;
+}
+
+.sem-conta, .esqueci-senha {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+body.claro .sem-conta,
+body.claro .esqueci-senha {
+    color: #666;
+}
+
+.sem-conta a, .esqueci-senha a {
+    color: var(--accent-purple);
+}
+
+.sem-conta a:hover, .esqueci-senha a:hover {
+    text-decoration: underline;
+}
+
+/* Fundo animado */
+body::before {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: radial-gradient(circle at 30% 50%, rgba(192, 132, 252, 0.15), transparent 40%),
+                radial-gradient(circle at 70% 50%, rgba(168, 85, 247, 0.15), transparent 40%);
+    animation: movimento 10s linear infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes movimento {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(50px, 30px); }
+    100% { transform: translate(0, 0); }
+}
+
+.background-logo {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    font-size: clamp(40px, 8vw, 100px);
+    color: rgba(192, 132, 252, 0.08);
+    font-weight: bold;
+    letter-spacing: 6px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.brand-top {
+    position: fixed;
+    top: 30px;
+    left: 40px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--accent-purple);
+    letter-spacing: 2px;
+    z-index: 2;
+}
+
+/* Responsividade */
 @media (max-width: 1024px) {
     .container-filmes {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* Tablet pequeno (até 768px): 2 colunas */
 @media (max-width: 768px) {
     .menu {
         padding: 12px 20px;
@@ -413,7 +605,6 @@ a {
     }
 }
 
-/* Celular (até 480px): 1 coluna */
 @media (max-width: 480px) {
     .container-filmes {
         grid-template-columns: 1fr;
@@ -424,152 +615,4 @@ a {
         flex-wrap: wrap;
         justify-content: center;
     }
-}
-
-.btn-assistir {
-    background: #dc2626;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    font-weight: 600;
-    transition: background 0.2s;
-    width: fit-content;
-}
-
-.btn-assistir:hover {
-    background-color: #b20710;
-}
-
-/* ===== LOGIN ===== */
-
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-/* Card do login */
-.login-container form {
-    background: #141414;
-    padding: 35px;
-    border-radius: 12px;
-    width: 320px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-    border: 1px solid #2a2a2a;
-}
-
-/* Título */
-.login-container h2 {
-    text-align: center;
-    color: #c084fc;
-    margin-bottom: 10px;
-}
-
-/* Inputs */
-.login-container input {
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #333;
-    background: #0a0a0a;
-    color: #f0f0f0;
-    font-size: 0.9rem;
-}
-
-/* Botão */
-.login-container button {
-    background: #c084fc;
-    color: black;
-    border: none;
-    padding: 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-.login-container button:hover {
-    background: #a855f7;
-}
-
-/* Links */
-.sem-conta, .esqueci-senha {
-    text-align: center;
-    font-size: 0.8rem;
-    color: #aaa;
-}
-
-.sem-conta a, .esqueci-senha a {
-    color: #c084fc;
-}
-
-.sem-conta a:hover, .esqueci-senha a:hover {
-    text-decoration: underline;
-}
-
-/* ===== FUNDO ESTILIZADO LOGIN ===== */
-
-body::before {
-    content: "";
-    position: fixed;
-    width: 200%;
-    height: 200%;
-    top: -50%;
-    left: -50%;
-    background: radial-gradient(circle at 30% 50%, rgba(192,132,252,0.15), transparent 40%),
-                radial-gradient(circle at 70% 50%, rgba(168,85,247,0.15), transparent 40%);
-    animation: movimento 10s linear infinite;
-    z-index: 0;
-}
-
-@keyframes movimento {
-    0% { transform: translate(0,0); }
-    50% { transform: translate(50px, 30px); }
-    100% { transform: translate(0,0); }
-}
-
-/* texto grande no fundo */
-.background-logo {
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-
-    font-size: clamp(40px, 8vw, 100px);
-    color: rgba(192,132,252,0.08);
-
-    font-weight: bold;
-    letter-spacing: 6px;
-
-    z-index: 0;
-    pointer-events: none;
-}
-
-/* garante que o login fica acima */
-.login-container {
-    position: relative;
-    z-index: 1;
-}
-
-body::before,
-body::after {
-    pointer-events: none;
-}
-
-.brand-top {
-    position: fixed;
-    top: 30px;
-    left: 40px;
-
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #c084fc;
-
-    letter-spacing: 2px;
-    z-index: 2;
 }

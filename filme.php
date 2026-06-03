@@ -48,6 +48,7 @@ $favoritado = $res_fav->num_rows > 0;
             <a href="index.php?tipo=filme">Filmes</a>
             <a href="index.php?tipo=serie">Séries</a>
             <a href="perfil.php">Perfil</a>
+            <button id="tema">☀️</button>
         </nav>
     </header>
 
@@ -117,5 +118,6 @@ $favoritado = $res_fav->num_rows > 0;
     });
     </script>
 
+    <script src="acessibilidade.js"></script>
 </body>
 </html>

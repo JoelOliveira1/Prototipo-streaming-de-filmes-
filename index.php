@@ -42,6 +42,7 @@ while ($fav = $res_fav->fetch_assoc()) {
             <a href="index.php?tipo=filme">Filmes</a>
             <a href="index.php?tipo=serie">Séries</a>
             <a href="perfil.php">Perfil</a>
+            <button id="tema">☀️</button>
         </nav>
     </header>
 
@@ -134,5 +135,6 @@ while ($fav = $res_fav->fetch_assoc()) {
     });
     </script>
 
+    <script src="acessibilidade.js"></script>
 </body>
 </html>

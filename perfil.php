@@ -39,6 +39,7 @@ $favoritos = $conn->query($sql_favoritos);
             <a href="index.php?tipo=filme">Filmes</a>
             <a href="index.php?tipo=serie">Séries</a>
             <a href="perfil.php">Perfil</a>
+            <button id="tema">☀️</button>
         </nav>
     </header>
 
@@ -126,5 +127,6 @@ $favoritos = $conn->query($sql_favoritos);
     });
     </script>
 
+    <script src="acessibilidade.js"></script>
 </body>
 </html>
