@@ -46,6 +46,10 @@ a {
     color: inherit;
 }
 
+body.claro nav a {
+    color: #fff
+}
+
 /* Menu */
 .menu {
     background-color: rgba(50, 0, 100, 0.90);
@@ -295,7 +299,7 @@ body.claro .badge-tipo {
 }
 
 body.claro .sinopse {
-    color: #666;
+    color: #111;
 }
 
 .btn-favoritar-detalhe {
