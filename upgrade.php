@@ -20,6 +20,7 @@ $categoria = $_SESSION['categoria'] ?? 'normal';
     <nav>
         <a href="index.php">Início</a>
         <a href="perfil.php">Perfil</a>
+        <button id="tema">☀️</button>
     </nav>
 </header>
 
@@ -186,5 +187,6 @@ function fecharPopup(id) {
 <?php endif; ?>
 </script>
 
+<script src="acessibilidade.js"></script>
 </body>
 </html>

@@ -87,6 +87,12 @@ body.claro nav a {
     font-size: 0.95rem;
     transition: color 0.2s;
 }
+.menu nav a:focus,
+.menu nav button:focus {
+    outline: 2px solid #c084fc;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
 
 .menu nav a:hover {
     color: var(--accent-purple);
@@ -156,10 +162,14 @@ body.claro nav a {
     position: relative;
     transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
     cursor: pointer;
-}
-
-body.claro .box-filme {
     border: 1px solid var(--border-color);
+}
+ 
+.box-filme:hover,
+.box-filme:focus-within {
+    transform: scale(1.04);
+    box-shadow: 0 8px 30px rgba(192, 132, 252, 0.3);
+    border: 2px solid #c084fc;
 }
 
 .box-filme:hover {
@@ -240,10 +250,13 @@ body.claro .badge-tipo {
     z-index: 10;
 }
 
-.btn-favoritar:hover {
+.btn-favoritar:hover, 
+.btn-favoritar:focus-visible {
     background: rgba(0, 0, 0, 0.85);
     color: #f87171;
     transform: scale(1.15);
+    outline: none;
+    box-shadow: 0 0 0 2px #c084fc;
 }
 
 .btn-favoritar.favoritado {
