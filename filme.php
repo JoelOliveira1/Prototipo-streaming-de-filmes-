@@ -48,7 +48,28 @@ $favoritado = $res_fav->num_rows > 0;
             <a href="index.php?tipo=filme">Filmes</a>
             <a href="index.php?tipo=serie">Séries</a>
             <a href="perfil.php">Perfil</a>
-            <button id="tema">☀️</button>
+            <div id="menu-acessibilidade">
+                <button id="btn-acessibilidade">
+                    <img src="imagens/acessibilidade-icon.webp" alt="Acessibilidade" width="32" height="32">
+                </button>
+
+                <div id="painel-acessibilidade" class="painel-oculto">
+                    <div class="painel-item">
+                        <label for="contraste">Alto Contraste</label>
+                        <label class="switch">
+                        <input type="checkbox" id="contraste">
+                        <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="painel-item">
+                        <label for="tema">Tema Claro</label>
+                        <label class="switch">
+                        <input type="checkbox" id="tema">
+                        <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
         </nav>
     </header>
 
